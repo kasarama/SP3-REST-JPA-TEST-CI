@@ -122,7 +122,7 @@ public class MovieResourceTest {
     }
     
     
-    //@Disabled
+   
     @Test
     public void testCountAll() throws Exception {
         given()
@@ -133,33 +133,28 @@ public class MovieResourceTest {
         .body("count", equalTo(2));   
     }
     
-}
-
-
-/*
-
-    
- 
-    //@Disabled
-    @Test
-    public void testCount() throws Exception {
-        given()
-        .contentType("application/json")
-        .get("/movie/count").then()
-        .assertThat()
-        .statusCode(HttpStatus.OK_200.getStatusCode())
-        .body("count", equalTo(2));   
-    }
-    //@Disabled
-    @Test
-    public void testSpecificTitle() throws Exception {
-        given()
-        .contentType("application/json")
-        .get("/movie/title/spanden").then()
-        .assertThat()
-        .statusCode(HttpStatus.OK_200.getStatusCode())
-        .body("[0].id", equalTo(m1.getId().intValue()));
-    }
     
    
-}*/
+    @Test
+    public void testgetOlderMovies() throws Exception {
+        given()
+        .contentType("application/json")
+        .get("/movie/olderthan/2000").then()
+        .assertThat()
+        .statusCode(HttpStatus.OK_200.getStatusCode())
+        .body("[0].title", equalTo("Movie Test 1"));
+    }
+
+
+
+    @Test
+    public void testGetMovieByID() throws Exception {
+        given()
+        .contentType("application/json")
+        .get("/movie/getMovieByID/"+m2.getId()).then()
+        .assertThat()
+        .statusCode(HttpStatus.OK_200.getStatusCode())
+        .body("id", equalTo(m2.getId()));
+    }
+    
+}
