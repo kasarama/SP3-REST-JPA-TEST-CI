@@ -99,7 +99,7 @@ public class MovieResourceTest {
     }
    
     @Test
-    public void testDummyMsg() throws Exception {
+    public void testDemo() throws Exception {
         given()
         .contentType("text/html")
         .get("/movie/").then()
@@ -107,22 +107,27 @@ public class MovieResourceTest {
         .statusCode(HttpStatus.OK_200.getStatusCode())
         .equals("<h1>Magdalena's Demo<h1>");   
     }
+    
+    @Test
+    public void testGetAllMovies() throws Exception {
+        given()
+            .contentType("application/json")
+        .get("/movie/allmovies")
+        .then()
+        .assertThat()
+        .statusCode(HttpStatus.OK_200.getStatusCode())
+        .body("size()", is(2))
+        .and()
+        .body("title",hasItems("Movie Test 1","Test2"));
+    }
+    
 }
 
 
 /*
 
     
-    
-    @Test
-    public void testDummyMsg() throws Exception {
-        given()
-        .contentType("application/json")
-        .get("/movie/").then()
-        .assertThat()
-        .statusCode(HttpStatus.OK_200.getStatusCode())
-        .body("msg", equalTo("Hello World"));   
-    }
+ 
     //@Disabled
     @Test
     public void testCount() throws Exception {
