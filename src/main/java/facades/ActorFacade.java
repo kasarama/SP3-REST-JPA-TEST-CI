@@ -5,6 +5,7 @@
  */
 package facades;
 
+import entities.Actor;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
@@ -49,6 +50,18 @@ public class ActorFacade {
             em.close();
         }
         
+    }
+    
+    public Actor addNewActor(Actor actor) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(actor);
+            em.getTransaction().commit();
+            return actor;
+        } finally {
+            em.close();
+        }
     }
 
 }

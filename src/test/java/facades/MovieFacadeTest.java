@@ -115,7 +115,8 @@ public class MovieFacadeTest {
     @Test
     public void addNewMovieTest() {
         String title="Test";
-        facade.addNewMovie(title, 2018);
+        Movie movie =new Movie(title,2018);
+        facade.addNewMovie(movie);
         Movie result = facade.findBMovieByTitle(title);
         EntityManager em = emf.createEntityManager();  
         assertTrue(result.getTitle().equals(title));

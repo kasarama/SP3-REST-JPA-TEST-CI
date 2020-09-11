@@ -64,9 +64,8 @@ public class MovieFacade {
         }
     }
 
-    public Movie addNewMovie(String title, int year) {
+    public Movie addNewMovie(Movie movie) {
         EntityManager em = emf.createEntityManager();
-        Movie movie = new Movie(title, year);
         try {
             em.getTransaction().begin();
             em.persist(movie);
