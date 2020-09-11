@@ -40,7 +40,6 @@ public class MovieFacade {
         return emf.createEntityManager();
     }
 
-    //TODO Remove/Change this before use
     public long countAllMovies() {
         EntityManager em = emf.createEntityManager();
         try {

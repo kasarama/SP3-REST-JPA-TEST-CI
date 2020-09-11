@@ -7,6 +7,7 @@ package facades;
 
 import entities.Actor;
 import entities.Movie;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import org.junit.jupiter.api.AfterAll;
@@ -28,6 +29,8 @@ public class MovieFacadeTest {
 //@Disabled
     private static EntityManagerFactory emf;
     private static MovieFacade facade;
+    private static Movie m1;
+    private static Movie m2;
 
     public MovieFacadeTest() {
     }
@@ -36,6 +39,7 @@ public class MovieFacadeTest {
     public static void setUpClass() {
         emf = EMF_Creator.createEntityManagerFactoryForTest();
         facade = MovieFacade.getMovieFacade(emf);
+      
 
     }
 
@@ -52,8 +56,8 @@ public class MovieFacadeTest {
         Actor actor2 = new Actor("Aleksandra", 1963);
         Actor actor3 = new Actor("Karolina", 2014);
 
-        Movie m1 = new Movie("Titanic", 1999);
-        Movie m2 = new Movie("King Kong", 1973);
+        m1 = new Movie("Titanic", 1999);
+        m2 = new Movie("King Kong", 1973);
         m1.addActor(actor3);
         m1.addActor(actor2);
         m2.addActor(actor1);
@@ -63,6 +67,8 @@ public class MovieFacadeTest {
         try {
             em.getTransaction().begin();
             em.createNamedQuery("Movie.deleteAllRows").executeUpdate();
+            em.createNamedQuery("Actor.deleteAllRows").executeUpdate();
+          //  em.createQuery("DELETE from startcode.movie_actor ma").executeUpdate();
             em.persist(m1);
             em.persist(m2);
             em.persist(actor1);
@@ -121,5 +127,30 @@ public class MovieFacadeTest {
         EntityManager em = emf.createEntityManager();  
         assertTrue(result.getTitle().equals(title));
     }
-
+    
+    @Test
+    public void countAllMoviesTest(){
+        long result = facade.countAllMovies();
+        assertEquals(result, 2L);
+    }
+    
+    @Test
+    public void findBMovieByTitle(){
+        String title = "Titanic";
+    Movie result = facade.findBMovieByTitle(title);
+        assertEquals(1999, result.getPremiereDate());
+    }
+    
+    @Test
+    public void findBMovieByIdTest() {
+     Movie result = facade.findBMovieById(m2.getId());
+        assertTrue(result.getTitle().equals(m2.getTitle()));
+    }
+    
+    @Test
+    public void getAllMoviesTest(){
+        List<Movie> all = facade.getAllMovies();
+        assertTrue(all.size()==2);
+    }
+   
 }
