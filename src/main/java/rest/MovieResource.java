@@ -45,7 +45,7 @@ public class MovieResource {
      * @return an instance of java.lang.String
      */
     
-    
+    /*
     @GET
     @Produces(MediaType.TEXT_HTML)
     public String demo() {
@@ -53,6 +53,13 @@ public class MovieResource {
      return "<h1>Magdalena's Demo<h1>";
     }
 
+    */
+     @GET
+    @Produces(MediaType.TEXT_HTML)
+    public String demo() {
+     //   return "{\"msg\":\"<p1>Magdalena's Demo<p1>\"}";
+     return "<h1>Magdalena's Demo<h1>";
+    }
     
     
     @Path("count")
