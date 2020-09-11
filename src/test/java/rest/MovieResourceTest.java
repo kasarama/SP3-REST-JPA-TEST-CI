@@ -121,6 +121,18 @@ public class MovieResourceTest {
         .body("title",hasItems("Movie Test 1","Test2"));
     }
     
+    
+    //@Disabled
+    @Test
+    public void testCountAll() throws Exception {
+        given()
+        .contentType("application/json")
+        .get("/movie/count").then()
+        .assertThat()
+        .statusCode(HttpStatus.OK_200.getStatusCode())
+        .body("count", equalTo(2));   
+    }
+    
 }
 
 
@@ -149,16 +161,5 @@ public class MovieResourceTest {
         .body("[0].id", equalTo(m1.getId().intValue()));
     }
     
-    @Test
-    public void testGetAllMovies() throws Exception {
-        given()
-            .contentType("application/json")
-        .get("/movie/all")
-        .then()
-        .assertThat()
-        .statusCode(HttpStatus.OK_200.getStatusCode())
-        .body("size()", is(2))
-        .and()
-        .body("title",hasItems("Olsenbanden på spanden","Olsenbanden slår igen"));
-    }
+   
 }*/
