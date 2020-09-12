@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>            
+            .mydiv 
+                {
+                width: 50px; 
+                height: 50px;
+                background-color:yellow; 
+                margin:1px;
+                }
+        </style>
+    </head>
+    <body>
+        <div id="a1" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a2" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a3" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a4" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a5" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a6" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a7" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a8" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a9" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a10" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a11" class="mydiv" onclick="writeHi()">click!</div>
+        <div id="a12" class="mydiv" onclick="writeHi()">click!</div>
+       
+    
+        <script>
+            function writeHi(){
+             var x = document.getElementsByTagName("div");
+             for(i=0;i<x.length;i++){
+             document.getElementById(x[i].id).innerHTML="Hi from "+x[i].id;
+         }
+    }
+        </script>
+    
+    </body>    
+</html>
