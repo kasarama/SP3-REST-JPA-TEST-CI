@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body onload="setStartColor()">
+        <div id="ex101" >div1</div>
+        <div id="ex102" >div2</div>
+        <div id="ex103" >div3</div>
+        <button type="button" onclick="newColor()">Change colors</button>
+
+
+
+        <script>
+            function setStartColor() {
+                var x = document.getElementsByTagName("div");
+                x[0].style.backgroundColor = "#66ff66";
+                x[1].style.backgroundColor = "#99ff00";
+                x[2].style.backgroundColor = "#ffff00";
+            }
+
+            function newColor() {
+                document.getElementById('ex101').style.backgroundColor = "#ff99ff";
+                document.getElementById('ex102').style.backgroundColor = "#ff00ff";
+                document.getElementById('ex103').style.backgroundColor = "#990099";
+                /* 
+                 //alternativ:
+                 var y = document.getElementsByTagName("div");
+                 y[0].style.backgroundColor = "#ff99ff";
+                 y[1].style.backgroundColor = "#ff00ff";
+                 y[2].style.backgroundColor = "#990099";*/
+            }
+        </script>
+
+
+    </body>
+</html>
