@@ -23,7 +23,7 @@ b) done
 c) done
 
 Using map and filter to create dynamic table-rows
-not yet
+done
 
 Implement a calculator with the functionality given below.
 
