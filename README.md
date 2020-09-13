@@ -14,8 +14,8 @@ b)done
 
 Event Bubbling and event arguments
 a) done 
-b) not yet
-c) not yet
+b) done
+c) done
 
 Using map to create list’s (ul’s, tables etc.)
 a) not yet

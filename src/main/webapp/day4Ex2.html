@@ -6,42 +6,98 @@ and open the template in the editor.
 -->
 <html>
     <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
         <title>Task2</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>            
             .mydiv 
-                {
+            {
                 width: 50px; 
                 height: 50px;
                 background-color:yellow; 
                 margin:1px;
-                }
+                float: left;
+            }
+            .yourdiv 
+            {
+                width: 105px; 
+                height: 45px;
+                background-color: greenyellow; 
+                margin:1px;
+                float: right;
+            }
+            .justdiv{
+                width: 20%;
+                float: left;
+
+
+            }
         </style>
     </head>
     <body>
-        <div id="a1" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a2" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a3" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a4" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a5" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a6" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a7" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a8" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a9" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a10" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a11" class="mydiv" onclick="writeHi()">click!</div>
-        <div id="a12" class="mydiv" onclick="writeHi()">click!</div>
-       
-    
+        <div>
+            <!--
+                        <div class="justdiv">
+                            <div id="a1" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a2" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a3" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a4" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a5" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a6" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a7" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a8" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a9" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a10" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a11" class="mydiv" onclick="writeHi()">click!</div>
+                            <div id="a12" class="mydiv" onclick="writeHi()">click!</div>
+                        </div>
+            -->
+            <div id="outer" class="justdiv">
+                <div id="q" class="yourdiv">click</div>
+                <div id="w" class="yourdiv">click</div>
+                <div id="e" class="yourdiv">click</div>
+                <div id="r" class="yourdiv">click</div>
+                <div id="t" class="yourdiv">click</div>
+                <div id="y" class="yourdiv">click</div>
+                <div id="u" class="yourdiv">click</div>
+                <div id="i" class="yourdiv">click</div>
+                <div id="o" class="yourdiv">click</div>
+                <div id="p" class="yourdiv">click</div>
+            </div>
+            <div class="justdiv">
+                <p id="output"></p>
+            </div>
+
+        </div>
         <script>
-            function writeHi(){
+            /*     function writeHi() {
              var x = document.getElementsByTagName("div");
-             for(i=0;i<x.length;i++){
-             document.getElementById(x[i].id).innerHTML="Hi from "+x[i].id;
-         }
-    }
+             for (i = 0; i < x.length; i++) {
+             document.getElementById(x[i].id).innerHTML = "Hi from " + x[i].id;                    
+             }
+             }
+             */
+            counter = 0;
+            div2 = document.getElementById("outer");
+            div2.addEventListener("click", function (e) {
+
+
+                let consolTxt = "element id: " + e.target.getAttribute("id");
+                let tID = e.target.getAttribute("id");
+                console.log(consolTxt + ", counter: " + counter);
+                if (counter % 2 !== 0) {
+                    document.getElementById(tID).style.backgroundColor = "red";
+                } else {
+                    document.getElementById(tID).style.backgroundColor = "pink";
+                }
+                document.getElementById(tID).innerHTML = "My id is: " + tID;
+                document.getElementById("output").innerHTML = consolTxt;
+                counter++;
+            });
+
         </script>
-    
+
     </body>    
 </html>

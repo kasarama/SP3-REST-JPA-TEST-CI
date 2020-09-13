@@ -14,7 +14,7 @@ and open the template in the editor.
         <div id="ex101" >div1</div>
         <div id="ex102" >div2</div>
         <div id="ex103" >div3</div>
-        <button type="button" onclick="newColor()">Change colors</button>
+        <button id="btn" type="button" onclick="newColor()">Change colors</button>
 
 
 
@@ -37,7 +37,13 @@ and open the template in the editor.
                  y[1].style.backgroundColor = "#ff00ff";
                  y[2].style.backgroundColor = "#990099";*/
             }
-        </script>
+            
+              let btn = document.getElementById("btn");
+              btn.addEventListener("click", (event)  => {
+                  event.preventDeafult();
+                  newColor();
+              });
+              </script>
 
 
     </body>
