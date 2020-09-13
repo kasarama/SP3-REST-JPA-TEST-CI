@@ -6,7 +6,7 @@ FLow 1 Week 3 Day 2 Ex. 2
 Status: 
 Movie task deployed by Travis
 
-Dom Manipulation and Events
+Dom Manipulation and Events:
 
 Simple DOM manipulation and Event handling
 a) done
@@ -18,9 +18,9 @@ b) done
 c) done
 
 Using map to create list’s (ul’s, tables etc.)
-a) not yet
-b) not yet
-c) not yet
+a) done
+b) done
+c) done
 
 Using map and filter to create dynamic table-rows
 not yet
