@@ -27,9 +27,7 @@ done
 
 Implement a calculator with the functionality given below.
 
-a. not yet  
-b. not yet
-c. not yet
+DONE 
 
 Dynamic UI manipulation using data obtained via fetch
 forget abut that...

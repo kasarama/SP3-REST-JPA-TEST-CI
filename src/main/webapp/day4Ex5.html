@@ -1,16 +1,159 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<!doctype html>
+<html lang="en">
     <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style>
+            #container{
+                width: 226px;
+                height: 274px;
+                border: 3px solid darkblue;
+                margin: auto
+            }
+            .t1, .t4{
+                border: 1px solid black;
+                height: 48px;
+                margin-left: 3px;
+                margin-top: 3px;
+                display: inline-block;
+                text-align: center;
+                line-height: 48px;
+            }
+            .t1{
+                width: 48px;
+            }
+            .t4{
+                width: 219px;
+            }
+        </style>
         <title>Task5</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="https://selself.com">Home</a>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://selself.com/week1.html">Week1<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://selself.com/week2.html">Week2<span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="https://selself.com/week3.html" tabindex="-1" aria-disabled="true">Week3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="https://selself.com/week4.html" tabindex="-1" aria-disabled="true">Week4</a>
+                    </li>
+
+
+                </ul>
+                <span class="navbar-text">
+                    Flow 1 Sem 3
+                </span>
+
+            </div>
+        </nav>
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">JavaScript</h1>
+
+                <p class="lead">Calculator</p>
+
+
+
+
+
+                <div id="container">
+                    <div id="display" class="t4"></div>
+                    <div id="buttons">
+                        <div class="t1">7</div>
+                        <div class="t1">8</div>
+                        <div class="t1">9</div>
+                        <div class="t1">/</div>
+
+                        <div class="t1">4</div>
+                        <div class="t1">5</div>
+                        <div class="t1">6</div>
+                        <div class="t1">*</div>
+
+                        <div class="t1">1</div>
+                        <div class="t1">2</div>
+                        <div class="t1">3</div>
+                        <div class="t1">-</div>
+
+                        <div class="t1">0</div>
+                        <div class="t1">.</div>
+                        <div class="t1">+</div>
+                        <div id="calculate"class="t1">=</div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+        <script>
+
+            a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '/', '*', '-', '+', '='];
+
+
+            allBut = document.getElementById("buttons");
+            stringInput = "";
+            allBut.addEventListener("click", function (event) {
+                event.preventDefault();
+
+
+                // console.log(document.getElementById("buttons").toString());
+
+                input = event.target.innerHTML;
+                console.log(input);
+
+                if (event.target.getAttribute("class") !== "t1") {
+
+                } else {
+                    if (input !== '=') {
+                        tmp = stringInput,
+                                stringInput = tmp + input;
+                        document.getElementById("display").innerHTML = stringInput;
+
+                    } else {
+                        result=eval(stringInput);
+                        document.getElementById("display").innerHTML = result;
+                        stringInput="";
+                        
+                    }
+
+
+                }
+            });
+
+
+
+
+
+
+        </script>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     </body>
 </html>
